@@ -11,7 +11,7 @@
     "env": {
       "SECRET_KEY": {
         "description": "A secret key for verifying the integrity of signed cookies.",
-        "generator": "secret"
+        "generator": "G1kZH0=G+&bIQ8JS)9r8?FB7TQ?ME}"
       },
       "FLASK_APP": {
         "description": "Name of entrypoint app file in the root directory.",
