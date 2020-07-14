@@ -54,7 +54,7 @@ headers_ppi = {
 # stocks=pd.read_sql('''SELECT symbol FROM dg_stocks.orders
 # where  status='Open'  ''',
 #                  con=engine)['symbol'].unique()
-stocks=pd.read_sql("""SELECT symbol FROM follow where follow=1 """,
+stocks=pd.read_sql("""SELECT symbol FROM follow where follow=True """,
                  con=engine)['symbol'].values
 #stock2s=requests.get('http://localhost:5000/rest/follow').json()
 #print(stock2s)
