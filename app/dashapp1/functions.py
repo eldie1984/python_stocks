@@ -326,7 +326,7 @@ from movements where moneda='p\'''',
                      con=engine)['monto'].sum()
     #print('balance:{}'.format(balance))
     return [
-        get_top_bar_cell("Balance", balance.round(2)),
+        get_top_bar_cell("Balance", balance),
         get_top_bar_cell("Equity", equity),
         get_top_bar_cell("Margin", margin),
         get_top_bar_cell("Free Margin", fm),
