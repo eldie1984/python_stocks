@@ -65,7 +65,7 @@ news_requests = requests.get(
 
 
 def symbol_mapping(symbol):
-    return pd.read_sql("""SELECT * FROM follow where follow=1 and symbol='{}' """.format(symbol),
+    return pd.read_sql("""SELECT * FROM follow where follow=True and symbol='{}' """.format(symbol),
                      con=engine)
 
 # API Call to update news
