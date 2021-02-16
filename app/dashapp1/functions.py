@@ -54,7 +54,7 @@ headers_ppi = {
 # stocks=pd.read_sql('''SELECT symbol FROM dg_stocks.orders
 # where  status='Open'  ''',
 #                  con=engine)['symbol'].unique()
-stocks=pd.read_sql("""SELECT symbol FROM dg_stocks.follow where follow=1 """,
+stocks=pd.read_sql("""SELECT symbol FROM follow where follow=True """,
                  con=engine)['symbol'].values
 #stock2s=requests.get('http://localhost:5000/rest/follow').json()
 #print(stock2s)
@@ -65,7 +65,7 @@ news_requests = requests.get(
 
 
 def symbol_mapping(symbol):
-    return pd.read_sql("""SELECT * FROM dg_stocks.follow where follow=1 and symbol='{}' """.format(symbol),
+    return pd.read_sql("""SELECT * FROM follow where follow=True and symbol='{}' """.format(symbol),
                      con=engine)
 
 # API Call to update news
@@ -322,11 +322,11 @@ def get_top_bar(
     balance=50000, equity=50000, margin=0, fm=50000, m_level="%", open_pl=0
 ):
     balance = pd.read_sql('''SELECT monto
-from dg_stocks.movements where moneda='p\'''',
+from movements where moneda='p\'''',
                      con=engine)['monto'].sum()
     #print('balance:{}'.format(balance))
     return [
-        get_top_bar_cell("Balance", balance.round(2)),
+        get_top_bar_cell("Balance", balance),
         get_top_bar_cell("Equity", equity),
         get_top_bar_cell("Margin", margin),
         get_top_bar_cell("Free Margin", fm),
